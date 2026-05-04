@@ -1,10 +1,11 @@
 {
     "name": "bc-mcp-proxy-fisqal",
-    "version": "1.0.12",
+    "version": "1.0.13",
     "description": "Business Central MCP Proxy - npm wrapper for running the C# MCP proxy locally",
     "main": "index.js",
     "bin": {
-        "bc-mcp-proxy": "./bin/bc-mcp-proxy.js"
+        "bc-mcp-proxy": "./bin/bc-mcp-proxy.js",
+        "bc-mcp-proxy-interactive": "./bin/bc-mcp-proxy-wrapper.js"
     },
     "scripts": {
         "postinstall": "node scripts/install.js",
