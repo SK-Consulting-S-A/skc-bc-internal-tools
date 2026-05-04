@@ -1,6 +1,56 @@
 # 📰 SKC VS Tools - What's New
 
-## Version 2.0.0 - Latest Release
+## Version 2.3.0 - Latest Release
+
+### ⏱ Billable Effort Summary in Orchestration
+
+The `bc-orchestration` agent now produces a **Billable Effort Summary** at the end of every session — regardless of whether it was a full pipeline or a single-phase task.
+
+#### What it does
+- Estimates the equivalent hours a human BC developer would have spent on each phase completed (Research, Architecture, Logic, UI, Tests, Review, CAL Migration, Translation)
+- Compares **Junior Dev** vs **Senior Dev** benchmarks side by side
+- Outputs a ready-to-use billing reference table at the end of every orchestration run
+
+#### Why it matters
+When using AI-assisted development, the actual elapsed time is a fraction of the equivalent manual effort. This feature gives consultants a **defensible billing reference** based on standard BC development benchmarks — not the AI's wall-clock time.
+
+---
+
+### 🎛️ New: BC Control Addin Agent & Skill
+
+A dedicated **`bc-control-addin`** subagent and skill have been added for building HTML/CSS/JS control addins with ERP-style visuals.
+
+#### What's included
+- **`bc-control-addin.agent.md`** — new specialist subagent for building AL control addins (HTML, CSS, JS) with ERP-style visual components
+- **`skills/bc-control-addin/SKILL.md`** — skill with patterns, best practices, and templates for control addin development
+- **`skills/bc-orchestration/SKILL.md`** — updated to include the control addin agent in the orchestration skill reference
+- All other agents updated with clarified requirements and improved context for control addin-related tasks
+- `bc-orchestration` now routes "create a control addin" / "build a visual component" requests to `bc-control-addin` automatically, with `bc-al-logic` handling the AL wrapper
+
+---
+
+## Version 2.1.0
+
+### 🎯 VS Code-Only Focus — Cursor Support Removed
+
+This release removes all Cursor IDE support. SKC Tools now targets **VS Code / GitHub Copilot exclusively**, simplifying the codebase and configuration.
+
+#### What Changed
+- **Skills** now always install to `~/.copilot/skills/`
+- **Agents** now always install to `~/.copilot/agents/` (`.agent.md` format kept as-is)
+- **mcp.servers** preset is always written in VS Code object format
+- Removed `skc.writeCursorMcpFile` setting — only `skc.writeVSCodeMcpFile` remains
+- Removed `cursor-global` special path value from `skc.mcpFilePath`
+- Command palette entries renamed: **SKC: Install Copilot Skills / Agents**
+- Preset `settings.json` no longer applies Cursor-specific settings (`cursor.privacy.mode`, `cursor.telemetry`, `cursor.aiProxy`)
+
+#### News Page Auto-Open
+- The What's New page now **always opens automatically** as a Markdown preview on each new version
+- A notification button is also shown alongside the preview
+
+---
+
+## Version 2.0.0
 
 ### 🚀 NEW: BC CAL-to-AL Converter & Upgrade Automation
 
